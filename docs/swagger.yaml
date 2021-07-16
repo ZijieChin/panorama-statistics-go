@@ -1,0 +1,89 @@
+basePath: /v1
+info:
+  contact:
+    email: qinzijie1@swirecocacola.com
+    name: ZijieQin
+  description: Panorama Statistics api
+  title: Panorama Statistics
+  version: "1.0"
+paths:
+  /file:
+    get:
+      description: Get page view data with certain condition and return with Excel
+        file
+      parameters:
+      - description: user's wechat_work id
+        in: body
+        name: user
+        schema:
+          type: string
+      - description: page name
+        in: body
+        name: page
+        schema:
+          type: string
+      - description: start date
+        in: body
+        name: start
+        schema:
+          type: string
+      - description: end date
+        in: body
+        name: end
+        schema:
+          type: string
+      summary: Get page view file
+  /stat:
+    get:
+      description: Get page view data with certain condition
+      parameters:
+      - description: user's wechat_work id
+        in: body
+        name: user
+        schema:
+          type: string
+      - description: page name
+        in: body
+        name: page
+        schema:
+          type: string
+      - description: start date
+        in: body
+        name: start
+        schema:
+          type: string
+      - description: end date
+        in: body
+        name: end
+        schema:
+          type: string
+      responses:
+        "200":
+          description: '{"msg": "success", "data": ""}'
+          schema:
+            type: string
+      summary: Get page view
+    post:
+      consumes:
+      - application/x-www-form-urlencoded
+      description: Insert visit information using post method
+      parameters:
+      - description: user's wechat_work id
+        in: body
+        name: user
+        required: true
+        schema:
+          type: string
+      - description: page name
+        in: body
+        name: page
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: '{"msg": "success", "data": ""}'
+          schema:
+            type: string
+      summary: Insert visit info
+swagger: "2.0"

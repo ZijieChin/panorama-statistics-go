@@ -1,0 +1,138 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "Panorama Statistics api",
+        "title": "Panorama Statistics",
+        "contact": {
+            "name": "ZijieQin",
+            "email": "qinzijie1@swirecocacola.com"
+        },
+        "version": "1.0"
+    },
+    "basePath": "/v1",
+    "paths": {
+        "/file": {
+            "get": {
+                "description": "Get page view data with certain condition and return with Excel file",
+                "summary": "Get page view file",
+                "parameters": [
+                    {
+                        "description": "user's wechat_work id",
+                        "name": "user",
+                        "in": "body",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "description": "page name",
+                        "name": "page",
+                        "in": "body",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "description": "start date",
+                        "name": "start",
+                        "in": "body",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "description": "end date",
+                        "name": "end",
+                        "in": "body",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ]
+            }
+        },
+        "/stat": {
+            "get": {
+                "description": "Get page view data with certain condition",
+                "summary": "Get page view",
+                "parameters": [
+                    {
+                        "description": "user's wechat_work id",
+                        "name": "user",
+                        "in": "body",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "description": "page name",
+                        "name": "page",
+                        "in": "body",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "description": "start date",
+                        "name": "start",
+                        "in": "body",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "description": "end date",
+                        "name": "end",
+                        "in": "body",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{\"msg\": \"success\", \"data\": \"\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            },
+            "post": {
+                "description": "Insert visit information using post method",
+                "consumes": [
+                    "application/x-www-form-urlencoded"
+                ],
+                "summary": "Insert visit info",
+                "parameters": [
+                    {
+                        "description": "user's wechat_work id",
+                        "name": "user",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "description": "page name",
+                        "name": "page",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{\"msg\": \"success\", \"data\": \"\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
