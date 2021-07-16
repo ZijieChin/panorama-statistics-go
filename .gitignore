@@ -15,7 +15,7 @@
 vendor/
 
 # Project database
-*.db
+data.db
 
 # VSCode config
 .vscode
