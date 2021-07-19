@@ -1,6 +1,8 @@
 package middleware
 
 import (
+	"Panorama-Statistics/database"
+
 	"github.com/gin-gonic/gin"
 	"github.com/go-playground/validator/v10"
 )
@@ -17,6 +19,12 @@ func Validate() gin.HandlerFunc {
 			return
 		}
 		user := c.PostForm("user")
+		if database.GetTimes(user) >= 10 {
+			c.AbortWithStatusJSON(400, map[string]string{
+				"msg": "Too many duplicate visits, you can still visit the site normally, but no visit count will be recorded.",
+			})
+			return
+		}
 		page := c.PostForm("page")
 		err := StatPostValid(&StatPost{
 			User: user,

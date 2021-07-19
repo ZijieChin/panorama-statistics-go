@@ -14,7 +14,7 @@ type Response struct {
 	Data interface{} `json:"data"`
 }
 
-var res = Response{}
+var res = &Response{}
 
 // @Summary Insert visit info
 // @Description Insert visit information using post method
@@ -37,7 +37,7 @@ func InsertInfo(c *gin.Context) {
 		return
 	}
 	res.MSG = "success"
-	c.JSON(200, res)
+	c.JSON(200, "")
 }
 
 // @Summary Get page view
